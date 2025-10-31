@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Happy Birthday, Lunillu 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#e14d8b;
+    --bg1:#fffafc;
+    --bg2:#fbefff;
+    --muted:#6b6b6b;
+  }
+  *{box-sizing:border-box}
+  body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  display: flex;
+  justify-content: center;
+  color: #333;
+  overflow-y: auto; /* ✅ allows scrolling */
+  overflow-x: hidden;
+  padding: 40px 0; /* ✅ adds breathing space for scroll */
+}
+  .card{
+    width:92%;
+    max-width:920px;
+    background:rgba(255,255,255,0.85);
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    padding:28px;
+    position:relative;
+    text-align:center;
+  }
+  .hero-img{
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid rgba(241,208,222,0.9);
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    margin:0 auto 18px;
+  }
+  h1{
+    margin:8px 0 6px;
+    font-size:2.2rem;
+    color:var(--accent);
+    letter-spacing:0.4px;
+  }
+  p.lead{
+    margin:0 0 18px;
+    color:var(--muted);
+    font-size:1.05rem;
+  }
+
+  /* slideshow */
+  .slideshow{
+    width:100%;
+    max-width:720px;
+    height:700px;
+    margin:18px auto 6px;
+    position:relative;
+    border-radius:12px;
+    overflow:hidden;
+    background:linear-gradient(180deg,#fff,#fbf3fb);
+  }
+  .slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity .8s ease;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .slide.active{ opacity:1; }
+
+  /* confetti */
+  .confetti-piece{
+    position:fixed;
+    pointer-events:none;
+    z-index:40;
+    will-change: transform, opacity;
+    opacity:0.95;
+  }
+
+  /* controls */
+  .controls{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:12px;
+  }
+  .btn{
+    padding:8px 14px;
+    border-radius:999px;
+    border:none;
+    background:linear-gradient(90deg,#fff,#fff);
+    box-shadow:0 3px 10px rgba(0,0,0,0.06);
+    cursor:pointer;
+    font-weight:600;
+  }
+  .btn.play{
+    background:linear-gradient(90deg,#ffdfe9,#fff6fb);
+    color:var(--accent);
+  }
+
+  footer{
+    font-size:0.9rem;
+    color:#777;
+    margin-top:14px;
+  }
+
+  /* small screens */
+  @media(max-width:520px){
+    .slideshow{ height:220px; }
+    .hero-img{ width:150px; height:150px; }
+    h1{ font-size:1.6rem; }
+  }
+</style>
+</head>
+<body>
+  <!-- Audio (using local birthday.mp3) -->
+  <audio id="bgAudio" autoplay loop>
+    <source src="audio/birthday.mp3" type="audio/mpeg">
+    <!-- If user browser blocks autoplay, they can press Play -->
+  </audio>
+
+  <div class="card" role="main" aria-label="Birthday card for Lunillu">
+    <!-- Hero image: if you put IMG_1185.PNG in same folder it will be used as first slide -->
+    <div class="slideshow" id="slideshow" aria-hidden="false">
+      <div class="slide" data-src="images/IMG_1185.PNG">
+        <img src="images/IMG_1185.PNG" alt="Lunillu (your image - replace if needed)" onerror="this.style.display='none'">
+      </div>
+      <div class="slide">
+        <img src="images/IMG_1186.JPG" alt="Birthday flowers" onerror="this.style.display='none'">
+      </div>
+      <div class="slide">
+        <img src="images/IMG_1187.JPG" alt="Celebration lights" onerror="this.style.display='none'">
+      </div>
+      <div class="slide">
+        <img src="images/IMG_1077.JPG" alt="Birthday photo" onerror="this.style.display='none'">
+      </div>
+      <div class="slide">
+        <img src="images/IMG_1188 2.jpg" alt="Birthday moment" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <img class="hero-img" id="heroImg" src="images/IMG_1185.PNG" alt="Lunillu" onerror="this.style.display='none'">
+
+    <h1>Happy Birthday, Lunillu!</h1>
+    <p class="lead">🎉 Happy Birthday, Lunillu! 🎉
+
+
+
+        Happy Birthday to one of the best people I know!
+        
+        You’ve been there as a friend, a best friend, and someone I can always count on. I’m really thankful for the bond we share — for all the laughs, the random talks, and the memories that make everything better.
+        
+        
+        
+        You’ve got such a good heart, and I genuinely wish you all the happiness in the world.
+        
+        May your birthday be filled with smiles, good vibes, and everything that makes you feel appreciated and loved.
+        
+        
+        
+        No matter what, I’ll always value this friendship — because people like you don’t come around often.
+        
+        
+        
+        Have an amazing birthday, Lunillu 🎂💫</p>
+
+    <div class="controls">
+      <button class="btn play" id="toggleAudio">Pause Music</button>
+      <button class="btn" id="muteBtn">Mute</button>
+      <button class="btn" id="prevBtn">Prev</button>
+      <button class="btn" id="nextBtn">Next</button>
+    </div>
+
+    <footer>Made with ❤️ by Potta</footer>
+  </div>
+
+<script>
+/* ---------- Slideshow logic ---------- */
+const slides = Array.from(document.querySelectorAll('.slide'));
+let idx = 0;
+function showSlide(i){
+  slides.forEach((s, si)=> s.classList.toggle('active', si===i));
+}
+showSlide(0);
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  idx = (idx+1)%slides.length;
+  showSlide(idx);
+});
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  idx = (idx-1+slides.length)%slides.length;
+  showSlide(idx);
+});
+
+// auto-advance
+setInterval(()=> {
+  idx = (idx+1)%slides.length;
+  showSlide(idx);
+}, 4500);
+
+/* ---------- Audio controls ---------- */
+const audio = document.getElementById('bgAudio');
+const toggleAudio = document.getElementById('toggleAudio');
+const muteBtn = document.getElementById('muteBtn');
+
+toggleAudio.onclick = () => {
+  if(audio.paused){ audio.play(); toggleAudio.textContent = 'Pause Music'; }
+  else { audio.pause(); toggleAudio.textContent = 'Play Music'; }
+};
+muteBtn.onclick = () => {
+  audio.muted = !audio.muted;
+  muteBtn.textContent = audio.muted ? 'Unmute' : 'Mute';
+};
+
+/* Note: Many browsers restrict autoplay with sound.
+   If autoplay is blocked, users can press Play using the control above. */
+
+/* ---------- Floating confetti animation ---------- */
+const confettiColors = ['#f9d7eb','#f7b5d0','#e6a3c1','#f4c2d7','#fbefff','#ffdfe9','#fff0f6'];
+function makeConfettiPiece(){
+  const el = document.createElement('div');
+  el.className = 'confetti-piece';
+  const size = 6 + Math.random()*12;
+  el.style.width = size + 'px';
+  el.style.height = size*1.3 + 'px';
+  el.style.left = Math.random()*100 + 'vw';
+  el.style.top = (-20 - Math.random()*40) + 'vh';
+  el.style.background = confettiColors[Math.floor(Math.random()*confettiColors.length)];
+  el.style.borderRadius = (Math.random()>0.5? '50%':'2px');
+  el.style.opacity = 0.95;
+  el.style.transform = `rotate(${Math.random()*360}deg)`;
+  el.style.zIndex = 30;
+  document.body.appendChild(el);
+
+  // animate down
+  const duration = 4000 + Math.random()*5000;
+  const endX = (Math.random()-0.5) * 200; // horizontal drift
+  const endY = window.innerHeight + 200;
+  el.animate([
+    { transform: `translate3d(0,0,0) rotate(0deg)`, opacity:1 },
+    { transform: `translate3d(${endX}px, ${endY}px, 0) rotate(${360 + Math.random()*720}deg)`, opacity:0.1 }
+  ], {
+    duration,
+    easing: 'cubic-bezier(.2,.6,.2,1)',
+    iterations: 1,
+    fill: 'forwards'
+  });
+
+  // remove after animation
+  setTimeout(()=> el.remove(), duration + 50);
+}
+
+// create bursts periodically
+setInterval(()=> {
+  // small bursts
+  for(let i=0;i<6;i++) makeConfettiPiece();
+}, 900);
+
+/* ---------- If IMG_1185.PNG missing, slideshow still works with placeholders ---------- */
+/* Allow user to replace placeholder images by uploading same filenames when hosting. */
+
+</script>
+</body>
+</html>

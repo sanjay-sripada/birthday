@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Lunillu 🎉</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, lavender, #e6e6fa, #d8bfd8);
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        color: #4b0082;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-top: 60px;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-size: 1.3em;
+        margin-top: -10px;
+        color: #663399;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 40px 0;
+        gap: 20px;
+      }
+
+      .gallery img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .message {
+        font-size: 1.2em;
+        margin: 30px auto;
+        width: 80%;
+        max-width: 700px;
+        line-height: 1.6;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 3s ease-in-out;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding: 20px;
+        font-size: 1em;
+        background: rgba(255, 255, 255, 0.3);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        color: #4b0082;
+      }
+
+      footer span {
+        font-weight: 600;
+        color: #8a2be2;
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎂 Happy Birthday, Lunillu 💜</h1>
+    <h2>You make the world softer, brighter, and more fun!</h2>
+
+    <div class="gallery">
+      <img src="images/IMG_1186.JPG" alt="memory1" />
+      <img src="images/IMG_1187.JPG" alt="memory2" />
+      <img src="images/IMG_1185.png" alt="memory3" />
+      <img src="images/IMG_1077.JPG" alt="memory4" />
+    </div>
+
+    <div class="message">
+      <p>
+        Happy Birthday, Luni 💜  
+        You’ve been my best friend, my closest person, and the one I can always count on.  
+        From our random talks to the laughs that never end, every moment has been special with you.  
+        You deserve all the love, peace, and happiness this world can give.  
+        Keep shining like the lavender sky — calm, beautiful, and full of magic.  
+        Here’s to another year of friendship and unforgettable memories! 🌸
+      </p>
+    </div>
+
+    <footer>
+      Made with ✨ and endless smiles by <span>Potta</span>
+    </footer>
+
+    <audio autoplay loop>
+      <source src="https://cdn.pixabay.com/download/audio/2023/03/23/audio_0e017b0099.mp3?filename=soft-piano-melody-141527.mp3" type="audio/mpeg" />
+    </audio>
+  </body>
+</html>

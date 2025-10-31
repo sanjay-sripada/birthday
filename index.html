@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Happy Birthday, Lunillu 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:#e14d8b;
+    --bg1:#fffafc;
+    --bg2:#fbefff;
+    --muted:#6b6b6b;
+  }
+  *{box-sizing:border-box}
+  body {
+    margin:0;
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    display:flex;
+    justify-content:center;
+    color:#333;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding:40px 0;
+    transition:background 0.6s ease,color 0.6s ease;
+  }
+.card {
+  width: 92%;
+  max-width: 920px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 28px;
+  position: relative;
+  text-align: center;
+  margin: 0 auto 60px; /* Center horizontally & give bottom space */
+}
+  .hero-img {
+    width:200px;height:200px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid rgba(241,208,222,0.9);
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    margin:0 auto 18px;
+    animation:bounce 3s infinite ease-in-out;
+  }
+  @keyframes bounce {
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+  }
+  h1 {
+    margin:8px 0 6px;
+    font-size:2.4rem;
+    color:var(--accent);
+    letter-spacing:0.4px;
+    animation:fadeIn 2s ease-in-out;
+  }
+  p.lead {
+    margin:0 0 18px;
+    color:var(--muted);
+    font-size:1.05rem;
+    line-height:1.6;
+  }
+  @keyframes fadeIn {
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* slideshow */
+  .slideshow {
+    width:100%;
+    max-width:720px;
+    height:720px;
+    margin:18px auto 6px;
+    position:relative;
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .slide {
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity 1s ease;
+  }
+  .slide.active {opacity:1;}
+  .slide img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  /* Confetti */
+  .confetti {
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+  }
+  .confetti-piece {
+    position:absolute;
+    width:8px;height:14px;
+    background:var(--accent);
+    opacity:0.9;
+    animation:confetti-fall linear forwards;
+  }
+  @keyframes confetti-fall {
+    0%{transform:translateY(-10px) rotate(0deg);}
+    100%{transform:translateY(100vh) rotate(360deg);}
+  }
+
+  /* Balloons */
+  .balloon {
+    position:fixed;
+    bottom:-120px;
+    width:70px;
+    height:90px;
+    border-radius:50% 50% 45% 45%;
+    animation:float 8s ease-in infinite;
+    z-index:2;
+  }
+  .balloon::after {
+    content:'';
+    position:absolute;
+    bottom:-30px;
+    left:50%;
+    transform:translateX(-50%);
+    width:2px;
+    height:30px;
+    background:#777;
+  }
+  @keyframes float {
+    0%{transform:translateY(0) rotate(0deg);}
+    100%{transform:translateY(-120vh) rotate(20deg);}
+  }
+
+  .controls{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:12px;
+  }
+  .btn{
+    padding:8px 14px;
+    border-radius:999px;
+    border:none;
+    background:linear-gradient(90deg,#fff,#fff);
+    box-shadow:0 3px 10px rgba(0,0,0,0.06);
+    cursor:pointer;
+    font-weight:600;
+  }
+  .btn.play{
+    background:linear-gradient(90deg,#ffdfe9,#fff6fb);
+    color:var(--accent);
+  }
+
+  footer{font-size:0.9rem;color:#777;margin-top:16px;}
+  .sparkle-text {
+    display:inline-block;
+    font-weight:600;
+    animation:shimmer 3s infinite ease-in-out;
+  }
+  @keyframes shimmer {0%,100%{opacity:1;}50%{opacity:0.7;}}
+
+  /* theme toggle */
+  .theme-btn {
+    position:absolute;top:16px;right:16px;
+    background:linear-gradient(135deg,#fff,#fbefff);
+    border:none;border-radius:50%;
+    width:42px;height:42px;font-size:20px;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,0.15);
+    transition:transform 0.4s ease;
+  }
+  .theme-btn:hover{transform:rotate(20deg) scale(1.1);}
+
+  /* dark mode */
+  body.dark-mode {
+    --bg1:#1c1b22;
+    --bg2:#2a2730;
+    --accent:#a6faff;
+    --muted:#bbb;
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#f8f8f8;
+  }
+  body.dark-mode .card {
+    background:rgba(32,30,38,0.95);
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  @media(max-width:520px){
+    .slideshow{height:240px;}
+    .hero-img{width:140px;height:140px;}
+    h1{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+<audio id="bgAudio" autoplay loop muted>
+  <source src="audio/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<div class="confetti" id="confetti"></div>
+
+<div class="card">
+  <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+
+  <div class="slideshow" id="slideshow">
+    <div class="slide active"><img src="images/IMG_1186.JPG" alt="1"></div>
+    <div class="slide"><img src="images/IMG_1185.PNG" alt="2"></div>
+    <div class="slide"><img src="images/IMG_1187.JPG" alt="3"></div>
+    <div class="slide"><img src="images/IMG_1077.JPG" alt="4"></div>
+    <div class="slide"><img src="images/IMG_1188 2.jpg" alt="5"></div>
+  </div>
+
+  <img class="hero-img" src="images/IMG_1185.PNG" alt="Lunillu">
+
+  <h1>Happy Birthday, Lunillu! 🎉</h1>
+  <p class="lead">
+    You’ve been there as a friend, a best friend, and someone I can always count on.  
+    I’m really thankful for the bond we share — for all the laughs, the random talks, and the memories that make everything better.  
+    You’ve got such a good heart, and I genuinely wish you all the happiness in the world.  
+    May your birthday be filled with smiles, music, and everything that makes you feel special! 💫
+  </p>
+
+  <div class="controls">
+    <button class="btn play" id="toggleAudio">Pause Music</button>
+    <button class="btn" id="muteBtn">Mute</button>
+    <button class="btn" id="prevBtn">Prev</button>
+    <button class="btn" id="nextBtn">Next</button>
+  </div>
+
+  <footer><p class="sparkle-text">✨ Made with ❤️ by Potta ✨</p></footer>
+</div>
+
+<script>
+/* slideshow */
+const slides=[...document.querySelectorAll('.slide')];
+let idx=0;
+function showSlide(i){slides.forEach((s,si)=>s.classList.toggle('active',si===i));}
+setInterval(()=>{idx=(idx+1)%slides.length;showSlide(idx);},4000);
+document.getElementById('nextBtn').onclick=()=>{idx=(idx+1)%slides.length;showSlide(idx);}
+document.getElementById('prevBtn').onclick=()=>{idx=(idx-1+slides.length)%slides.length;showSlide(idx);}
+
+/* audio */
+const audio=document.getElementById('bgAudio');
+const toggleAudio=document.getElementById('toggleAudio');
+const muteBtn=document.getElementById('muteBtn');
+toggleAudio.onclick=()=>{if(audio.paused){audio.play();toggleAudio.textContent='Pause Music';}else{audio.pause();toggleAudio.textContent='Play Music';}};
+muteBtn.onclick=()=>{audio.muted=!audio.muted;muteBtn.textContent=audio.muted?'Unmute':'Mute';};
+document.addEventListener('click',()=>{audio.muted=false;audio.play().catch(()=>{});},{once:true});
+
+/* confetti pop */
+function createConfettiPiece(){
+  const el=document.createElement('div');
+  el.className='confetti-piece';
+  el.style.left=Math.random()*100+'vw';
+  el.style.background=['#ff9aae','#ffd6e0','#ffc4d6','#fddde6','#ff99c8'][Math.floor(Math.random()*5)];
+  el.style.animationDuration=(3+Math.random()*3)+'s';
+  el.style.width=(6+Math.random()*6)+'px';
+  el.style.height=(10+Math.random()*8)+'px';
+  document.getElementById('confetti').appendChild(el);
+  setTimeout(()=>el.remove(),6000);
+}
+for(let i=0;i<100;i++)setTimeout(createConfettiPiece,Math.random()*2000);
+setInterval(()=>{for(let i=0;i<8;i++)createConfettiPiece();},1200);
+
+/* balloons */
+function createBalloon(){
+  const b=document.createElement('div');
+  b.className='balloon';
+  b.style.left=Math.random()*100+'vw';
+  b.style.backgroundColor=['#ff89b5','#ffc4d6','#fddde6','#ff99c8','#f7b5d0'][Math.floor(Math.random()*5)];
+  b.style.animationDuration=(6+Math.random()*4)+'s';
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),10000);
+}
+setInterval(createBalloon,1500);
+
+/* theme toggle */
+const themeBtn=document.getElementById('themeToggle');
+if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark-mode');themeBtn.textContent='☀️';}
+themeBtn.onclick=()=>{
+  const dark=document.body.classList.toggle('dark-mode');
+  themeBtn.textContent=dark?'☀️':'🌙';
+  localStorage.setItem('theme',dark?'dark':'light');
+};
+</script>
+</body>
+</html>
